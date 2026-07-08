@@ -26,7 +26,10 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-        run: java --version
+
+      - name: checking java version
+        run: java -version
+      
       
 
    
