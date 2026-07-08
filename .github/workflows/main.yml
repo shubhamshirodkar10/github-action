@@ -1,0 +1,32 @@
+name: Petclinic CICD Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+  
+  schedule:
+    - cron: "0 2 * * *"   # nightly run at 2 AM UTC
+
+jobs:
+  Build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: code checkout
+        uses: actions/checkout@v7
+      
+      - name: setting jdk
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+        run: java --version
+      
+
+   
